@@ -1,0 +1,15 @@
+GET http://127.0.0.1:8000/api/v1/posts
+Authorization: Token efa3799b64dfd5dc400bd493e7079d4c4ebce19d
+
+###
+GET http://127.0.0.1:8000/api/v1/comments
+
+###
+POST  http://127.0.0.1:8000/api/v1/user/create/
+Content-Type: application/json
+
+{
+    "email":"kwame12@yahoo.com",
+    "password":"Sam@213",
+    "username":"James"
+}
