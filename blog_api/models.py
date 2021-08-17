@@ -1,6 +1,14 @@
+import os
+import uuid
 from django.db import models
 from django.contrib.auth import get_user_model
 
+def post_image_file_path(instance,filename):
+
+    ext = filename.split('.')[-1]
+    filename = f"{uuid.uuid4()}.{ext}"
+    return os.path.join(f'upload{os.sep}posts{os.sep}',filename)
+    # return f'.\\upload/posts\\{filename}'
 
 class PostModel(models.Model):
     user = models.ForeignKey(get_user_model(),help_text='author information',related_name='posts',on_delete=models.CASCADE)
@@ -9,6 +17,7 @@ class PostModel(models.Model):
     slug =  models.SlugField(max_length=200)
     sammary  = models.CharField(max_length=100)
     published = models.BooleanField(default=True)
+    image = models.ImageField(null=True,upload_to=post_image_file_path)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

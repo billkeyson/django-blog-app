@@ -1,8 +1,8 @@
 const path = require('path');
-
+'./static/js/index.js'
 module.exports = {
   mode: 'development',
-  entry: './template/src/js/index.js',
+  entry: path.resolve(__dirname,'static','js','index.js'),
   devtool: 'inline-source-map',
   module: {
     rules: [
@@ -41,6 +41,6 @@ module.exports = {
   },
   output: {
     filename: 'app.js',
-    path: path.resolve(__dirname, 'build', 'js'),
+    path: path.resolve(__dirname,'static','js','build'),
   },
 };

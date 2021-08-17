@@ -9,12 +9,17 @@ class CreatePostSerializer(serializers.ModelSerializer):
         model = models.PostModel
         fields = ('user','title','content','sammary','slug','published')
     
+class PostImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.PostModel
+        fields = ('id','image',)
+        read_only_fields = ('id',)
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         user = get_user_model()
         model = models.PostModel
-        fields = ('id','user','title','content','sammary','slug','published','created_at')
+        fields = ('id','user','title','content','sammary','slug','published','image','created_at')
         read_only_fields = ('user','created_at')
     
 

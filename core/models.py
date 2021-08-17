@@ -2,6 +2,8 @@ from django.contrib.auth.models import BaseUserManager,AbstractBaseUser,Permissi
 from django.db import models
 
 
+
+
 class UserManagement(BaseUserManager):
     def create_user(self,email,password=None,username='', **extra_fields):
         """Create and save new user"""
