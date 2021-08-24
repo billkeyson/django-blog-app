@@ -3,5 +3,5 @@ from .views import index
 urlpatterns = [
     # 127.0.0.1:8000 --> local
     # mydjangosite.com --> online
-    re_path(r'^(?!api\/)[\/\w\.\,-]*', index, name='post_list'),
+    re_path(r'^(?!api\/)(?!admin\/)[\/\w\.\,-]*', index, name='post_list'),
 ]

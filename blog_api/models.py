@@ -21,6 +21,17 @@ class PostModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def user_id(self):
+        return self.user
+
+    def email(self):
+        return self.user.email
+    
+    def commants(self):
+        return CommentModel.objects.filter(post_id=self.id)
+
+    def total_comments(self):
+        return CommentModel.objects.filter(post_id=self.id).count()
     class Meta:
         ordering = ['created_at']
     
